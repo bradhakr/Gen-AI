@@ -1,0 +1,23 @@
+{
+  "goid": "6fac0cde1e11b7f7954715a25cca4276",
+  "guid": "58611711-1549-4dd6-8a23-1c92ae894a2c",
+  "name": "GenAI - WebView",
+  "resolutionPath": "/rest/genAI/second-api",
+  "serviceType": "WEB_API",
+  "checksum": "a1f668c72be61a40b05682f5f18b7070d8c72f24",
+  "enabled": true,
+  "folderPath": "/GenAI",
+  "methodsAllowed": [
+    "GET",
+    "POST",
+    "PUT",
+    "DELETE",
+    "OPTIONS"
+  ],
+  "tracingEnabled": false,
+  "wssProcessingEnabled": false,
+  "laxResolution": false,
+  "policy": {
+    "json": "{\"All\":[{\"All\":[{\"SetVariable\":{\"expression\":\"{\\r\\n    \\\"Response\\\": \\\"Request Failed\\\",\\r\\n    \\\"Description\\\": \\\"Requested API Call failed.\\\"\\r\\n\\r\\n}\",\"variable\":\"error\"}},{\"SetVariable\":{\"expression\":\"500\",\"variable\":\"errorCode\"}}]},{\"OneOrMore\":[{\"All\":[{\"All\":[{\"SetVariable\":{\"expression\":\"{\\r\\n    \\\"Response\\\": \\\"Request Failed\\\",\\r\\n    \\\"Description\\\": \\\"Only HTTPS Request will work\\\"\\r\\n\\r\\n}\",\"variable\":\"error\"}},{\"SetVariable\":{\"expression\":\"500\",\"variable\":\"errorCode\"}}]},{\"Ssl\":{}},{\"All\":[{\"SetVariable\":{\"expression\":\"{\\r\\n    \\\"Response\\\": \\\"Authentication Failed\\\",\\r\\n    \\\"Description\\\": \\\"User not Found\\\"\\r\\n\\r\\n}\",\"variable\":\"error\"}},{\"SetVariable\":{\"expression\":\"402\",\"variable\":\"errorCode\"}}]},{\"HttpBasic\":{}},{\"Authentication\":{\"identityProviderOid\":\"0000000000000000fffffffffffffffe\"}},{\"All\":[{\"SetVariable\":{\"expression\":\"{\\r\\n    \\\"Response\\\": \\\"Throttling Failed\\\",\\r\\n    \\\"Description\\\": \\\"Request reached the Limit, please try again later\\\"\\r\\n\\r\\n}\",\"variable\":\"error\"}},{\"SetVariable\":{\"expression\":\"429\",\"variable\":\"errorCode\"}}]},{\"RateLimit\":{\"counterName\":\"PRESET(0490e2ae1acdc8ed)${request.clientid}\",\"maxConcurrency\":\"1\",\"maxRequestsPerSecond\":\"2\"}},{\"HardcodedResponse\":{\"body\":\"{\\n   \\\"API\\\": \\\"Generated AI API\\\",\\n   \\\"Response\\\": \\\"Google Vertex AI Generated this API\\\"\\n}\",\"contentType\":\"application/json; charset=UTF-8\"}}]},{\"All\":[{\"CustomizeErrorResponse\":{\"content\":\"${error}\",\"contentType\":\"application/json; charset=UTF-8\",\"extraHeaders\":[{\".type\":\"nameValuePair\",\"key\":\"CAError\",\"value\":\"${errorCode}\"}],\"includePolicyDownloadURL\":true}},{\"RaiseError\":{}}]}]}]}"
+  }
+}
